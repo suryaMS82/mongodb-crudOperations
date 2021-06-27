@@ -36,12 +36,16 @@ function reading(){
 }
 
 function Updating(){
-    tasks.updateMany({Completed:false},{Completed:true})
+    tasks.updateMany({Completed:false},{$set:{Completed:true},})
     .then((result)=>{
         
         if(result.length!==0){
             console.log("all data is updated");
         }
+        else{
+            console.log("no such data to update");
+        }
+        
 })
 
     .catch((err)=> console.log(err))
